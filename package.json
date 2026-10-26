@@ -1,0 +1,14 @@
+{
+  "name": "fogo",
+  "version": "1.0.0",
+  "description": "F.O.G.O. — Ferramenta Onisciente de Gestão e Operações. Coder Challenge 2026 (DSIN) — Etapa Bônus.",
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node server/index.js",
+    "reset": "node server/index.js --reset",
+    "test": "node server/test/testes.js",
+    "build:web": "cd web && npm install && npm run build"
+  }
+}
