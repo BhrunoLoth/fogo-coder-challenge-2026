@@ -1,0 +1,322 @@
+{
+ "_fonte": "Coordenadas de OpenStreetMap (via mapcarta), CEPs via qualeocep.com.br. Zonas atribuídas pela posição em relação à Catedral.",
+ "center": {
+  "lat": -22.2147,
+  "lng": -49.9461
+ },
+ "bbox": {
+  "south": -22.268,
+  "west": -49.995,
+  "north": -22.14,
+  "east": -49.898
+ },
+ "bairros": [
+  {
+   "nome": "Centro",
+   "zona": "Centro",
+   "lat": -22.2165,
+   "lng": -49.9475,
+   "cep": "17500-020",
+   "ruas": [
+    "Av. Sampaio Vidal",
+    "Av. Rio Branco",
+    "Av. Brasil"
+   ]
+  },
+  {
+   "nome": "Palmital",
+   "zona": "Norte",
+   "lat": -22.207,
+   "lng": -49.95,
+   "cep": "17509-031",
+   "ruas": [
+    "Av. República",
+    "Av. Pedro de Toledo",
+    "Av. Independência"
+   ]
+  },
+  {
+   "nome": "Castelo Branco",
+   "zona": "Norte",
+   "lat": -22.189,
+   "lng": -49.9595,
+   "cep": "17511-000",
+   "ruas": [
+    "Av. República",
+    "Av. Castro Alves"
+   ]
+  },
+  {
+   "nome": "Jardim Santa Antonieta",
+   "zona": "Norte",
+   "lat": -22.1715,
+   "lng": -49.9675,
+   "cep": "17512-130",
+   "ruas": [
+    "Av. Antonieta Altenfelder",
+    "Av. Eliezer Rocha",
+    "Av. João Martins Coelho"
+   ]
+  },
+  {
+   "nome": "Distrito Industrial",
+   "zona": "Norte",
+   "lat": -22.166,
+   "lng": -49.96,
+   "cep": "17512-050",
+   "ruas": [
+    "Av. Eugênio Coneglian",
+    "Av. Carlos Tosin",
+    "Av. Benedito Alves Delfino"
+   ]
+  },
+  {
+   "nome": "Parque das Nações",
+   "zona": "Norte",
+   "lat": -22.1482,
+   "lng": -49.9603,
+   "cep": "17512-540",
+   "ruas": [
+    "Rua Antônio Spressão",
+    "Rua João Caliman",
+    "Rua José Andôzia"
+   ]
+  },
+  {
+   "nome": "Somenzari",
+   "zona": "Norte",
+   "lat": -22.2072,
+   "lng": -49.9545,
+   "cep": "17506-000",
+   "ruas": [
+    "Av. Castro Alves",
+    "Av. Santo Antônio"
+   ]
+  },
+  {
+   "nome": "Alto Cafezal",
+   "zona": "Oeste",
+   "lat": -22.215,
+   "lng": -49.956,
+   "cep": "17502-000",
+   "ruas": [
+    "Av. Rio Branco",
+    "Av. Santo Antônio",
+    "Av. Bonfim"
+   ]
+  },
+  {
+   "nome": "Jardim Bandeirantes",
+   "zona": "Oeste",
+   "lat": -22.205,
+   "lng": -49.968,
+   "cep": "17505-120",
+   "ruas": [
+    "Av. José Camargo de Oliveira",
+    "Rua Brasilino Nogueira de Carvalho"
+   ]
+  },
+  {
+   "nome": "Jardim Califórnia",
+   "zona": "Oeste",
+   "lat": -22.2192,
+   "lng": -49.9759,
+   "cep": "17527-350",
+   "ruas": [
+    "Av. Dr. Hércules Galletti",
+    "Rua Alcides Caliman",
+    "Rua Miguel Pastori"
+   ]
+  },
+  {
+   "nome": "Jardim Cavallari",
+   "zona": "Oeste",
+   "lat": -22.2317,
+   "lng": -49.9736,
+   "cep": "17526-431",
+   "ruas": [
+    "Av. Maria Fernandes Cavallari",
+    "Rua João Furlanetto",
+    "Rua Maestro Sílvio de Souza"
+   ]
+  },
+  {
+   "nome": "Banzato",
+   "zona": "Leste",
+   "lat": -22.2075,
+   "lng": -49.941,
+   "cep": "17515-200",
+   "ruas": [
+    "Av. Cristo Rei",
+    "Av. São Vicente",
+    "Rua Paraíba"
+   ]
+  },
+  {
+   "nome": "Cascata",
+   "zona": "Leste",
+   "lat": -22.214,
+   "lng": -49.9395,
+   "cep": "17515-030",
+   "ruas": [
+    "Av. Vicente Ferreira",
+    "Av. Itu",
+    "Av. Rio Claro"
+   ]
+  },
+  {
+   "nome": "Jardim Maria Izabel",
+   "zona": "Leste",
+   "lat": -22.2129,
+   "lng": -49.9301,
+   "cep": "17515-430",
+   "ruas": [
+    "Av. Brigadeiro Eduardo Gomes",
+    "Av. Cascata",
+    "Av. dos Rubis"
+   ]
+  },
+  {
+   "nome": "Jardim Itamarati",
+   "zona": "Leste",
+   "lat": -22.199,
+   "lng": -49.929,
+   "cep": "17514-680",
+   "ruas": [
+    "Rua Guilherme Calandrim",
+    "Av. Brigadeiro Eduardo Gomes"
+   ]
+  },
+  {
+   "nome": "Jardim Tangará",
+   "zona": "Sul",
+   "lat": -22.2212,
+   "lng": -49.9388,
+   "cep": "17516-000",
+   "ruas": [
+    "Av. das Esmeraldas",
+    "Rua Braz Sampieri",
+    "Av. Vicente Ferreira"
+   ]
+  },
+  {
+   "nome": "Fragata",
+   "zona": "Sul",
+   "lat": -22.2262,
+   "lng": -49.9362,
+   "cep": "17519-000",
+   "ruas": [
+    "Av. Tiradentes",
+    "Rua Lourival Freire",
+    "Av. Carlos Artêncio"
+   ]
+  },
+  {
+   "nome": "Parque São Jorge",
+   "zona": "Sul",
+   "lat": -22.235,
+   "lng": -49.9296,
+   "cep": "17520-240",
+   "ruas": [
+    "Av. João Ramalho",
+    "Rua Amélia Boudet"
+   ]
+  },
+  {
+   "nome": "Nova Marília",
+   "zona": "Sul",
+   "lat": -22.2485,
+   "lng": -49.93,
+   "cep": "17522-363",
+   "ruas": [
+    "Av. João Ramalho",
+    "Av. Mem de Sá",
+    "Av. Dr. Durval de Menezes"
+   ]
+  },
+  {
+   "nome": "Jardim Teotônio Vilela",
+   "zona": "Sul",
+   "lat": -22.2515,
+   "lng": -49.942,
+   "cep": "17523-800",
+   "ruas": [
+    "Av. Frediano Giometti"
+   ]
+  },
+  {
+   "nome": "Jardim Marajó",
+   "zona": "Sul",
+   "lat": -22.249,
+   "lng": -49.918,
+   "cep": "17521-171",
+   "ruas": [
+    "Rua Pedro Banzato",
+    "Rua Amadeu Tosin",
+    "Rua Alexandre Chaia"
+   ]
+  }
+ ],
+ "pontos_referencia": [
+  {
+   "nome": "Catedral de São Bento",
+   "lat": -22.2147,
+   "lng": -49.9461
+  },
+  {
+   "nome": "Terminal Urbano",
+   "lat": -22.2159,
+   "lng": -49.9469
+  },
+  {
+   "nome": "Terminal Rodoviário",
+   "lat": -22.2306,
+   "lng": -49.9221
+  },
+  {
+   "nome": "Aeroporto Frank Miloye Milenkovich",
+   "lat": -22.1968,
+   "lng": -49.9269
+  },
+  {
+   "nome": "Famema",
+   "lat": -22.2249,
+   "lng": -49.938
+  },
+  {
+   "nome": "HC Famema",
+   "lat": -22.2271,
+   "lng": -49.936
+  },
+  {
+   "nome": "Esmeralda Shopping",
+   "lat": -22.2238,
+   "lng": -49.9337
+  },
+  {
+   "nome": "Estádio Bento de Abreu",
+   "lat": -22.2198,
+   "lng": -49.9391
+  },
+  {
+   "nome": "Hospital Unimar",
+   "lat": -22.2383,
+   "lng": -49.9669
+  },
+  {
+   "nome": "Museu de Paleontologia",
+   "lat": -22.2208,
+   "lng": -49.9483
+  },
+  {
+   "nome": "Fatec / Etec Antônio Devisate",
+   "lat": -22.208,
+   "lng": -49.954
+  },
+  {
+   "nome": "Complexo Ambulatorial Bento de Abreu",
+   "lat": -22.2117,
+   "lng": -49.9385
+  }
+ ]
+}
