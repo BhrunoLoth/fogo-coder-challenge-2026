@@ -1,0 +1,13 @@
+services:
+  fogo:
+    build: .
+    image: fogo:1.0
+    container_name: fogo
+    ports:
+      - "3000:3000"
+    volumes:
+      - fogo-dados:/app/data   # a cidade gerada continua salva entre reinícios
+    restart: unless-stopped
+
+volumes:
+  fogo-dados:

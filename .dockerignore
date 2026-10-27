@@ -1,0 +1,9 @@
+.git
+node_modules
+web
+data/*.sqlite
+data/*.tmp
+VIDEO-DEMONSTRACAO.mp4
+*.md
+iniciar.bat
+iniciar.sh

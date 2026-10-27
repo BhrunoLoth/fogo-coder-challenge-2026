@@ -25,8 +25,11 @@ Só precisa do **Node.js 18 ou mais novo**. Não tem `npm install`: o servidor n
 - **Windows:** dois cliques no `iniciar.bat`
 - **Linux/macOS:** `./iniciar.sh`
 - **Qualquer sistema:** `npm start`
+- **Docker (opcional):** `docker compose up --build` e abra http://localhost:3000
 
 O navegador abre em http://localhost:3000. Se a porta estiver ocupada, ele tenta a 3001, 3002 e assim por diante.
+
+O `iniciar.bat` só confere se o Node está instalado e roda `node server/index.js`. Dá para abrir no Bloco de Notas antes de executar.
 
 - Na primeira execução a cidade é gerada em cerca de 1 segundo e fica salva em `data/fogo.sqlite`.
 - Para apagar tudo e gerar de novo: `npm run reset`.
@@ -122,6 +125,7 @@ Um cuidado que tomei foi separar o simulador do motor. O simulador tem informaç
 ```
 fogo/
 ├─ iniciar.bat / iniciar.sh   inicia o sistema
+├─ Dockerfile                 execução em contêiner (opcional)
 ├─ server/
 │  ├─ index.js                servidor HTTP
 │  ├─ api.js                  API REST e eventos em tempo real
