@@ -55,8 +55,9 @@ export function Icone({ nome, tamanho = 18, cor = 'currentColor', traco = 1.8, c
 }
 
 /** HTML do marcador (Leaflet divIcon): ícone do tipo + anel na cor da situação. */
-export function marcadorHtml(nome: string, cor: string, opts: { pulso?: boolean; tamanho?: number; apagado?: boolean } = {}) {
+export function marcadorHtml(nome: string, cor: string, opts: { pulso?: boolean; tamanho?: number; apagado?: boolean; compacto?: boolean } = {}) {
   const t = opts.tamanho || 26;
-  return `<div class="mk${opts.pulso ? ' mk-pulso' : ''}${opts.apagado ? ' mk-apagado' : ''}" style="--c:${cor};width:${t}px;height:${t}px">
-    <svg width="${t * 0.62}" height="${t * 0.62}" viewBox="0 0 24 24" fill="none" stroke="#f3efe8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="${PATHS[nome] || PATHS.info}"/></svg></div>`;
+  const frac = opts.compacto ? 0.7 : 0.62;
+  return `<div class="mk${opts.pulso ? ' mk-pulso' : ''}${opts.apagado ? ' mk-apagado' : ''}${opts.compacto ? ' mk-compacto' : ''}" style="--c:${cor};width:${t}px;height:${t}px">
+    <svg width="${t * frac}" height="${t * frac}" viewBox="0 0 24 24" fill="none" stroke="#f3efe8" stroke-width="${opts.compacto ? 2.4 : 2}" stroke-linecap="round" stroke-linejoin="round"><path d="${PATHS[nome] || PATHS.info}"/></svg></div>`;
 }

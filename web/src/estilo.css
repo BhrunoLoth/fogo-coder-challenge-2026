@@ -155,7 +155,8 @@ textarea.inp { height: auto; padding: 9px 11px; resize: vertical; }
 .mk-apagado { opacity: .55; filter: grayscale(.6); }
 .mk-pulso { animation: mkpulso 1.4s infinite; }
 @keyframes mkpulso { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--c) 70%, transparent); } 70% { box-shadow: 0 0 0 14px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
-.ag { width: 14px; height: 14px; border-radius: 50%; border: 2px solid #0b0c0f; background: var(--c); box-shadow: 0 0 0 2px var(--c), 0 0 10px var(--c); }
+.ag { width: 18px; height: 18px; border-radius: 50%; border: 2px solid #0b0c0f; background: var(--c); box-shadow: 0 0 0 2px var(--c), 0 0 10px var(--c); display: grid; place-items: center; font: 700 10px/1 var(--mono); color: #0b0c0f; }
+.mk-compacto { border-width: 1.5px; box-shadow: 0 0 0 2px rgba(0,0,0,.35), 0 0 8px color-mix(in srgb, var(--c) 45%, transparent); }
 .oc { width: 16px; height: 16px; transform: rotate(45deg); border-radius: 3px; background: var(--c); border: 2px solid #0b0c0f; box-shadow: 0 0 14px var(--c); }
 .oc.ex { outline: 2px dashed #fff; outline-offset: 2px; }
 .ponto-ref { font-size: 10.5px; color: var(--suave); white-space: nowrap; text-shadow: 0 1px 3px #000, 0 0 6px #000; font-weight: 500; }

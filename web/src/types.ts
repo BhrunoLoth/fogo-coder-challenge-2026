@@ -42,7 +42,7 @@ export type Kpis = {
 
 export type EstadoVivo = {
   agora: number; kpis: Kpis;
-  agentes: { id: number; lat: number; lng: number; status: string; bairro_id: number; ocorrencia_id: number | null }[];
+  agentes: { id: number; lat: number; lng: number; status: string; tipo?: string; bairro_id: number; ocorrencia_id: number | null }[];
   moveis: { id: number; lat: number; lng: number }[];
   novasOcorrencias: Ocorrencia[]; ocorrenciasEncerradas: number[]; ocorrenciasAtualizadas?: { id: number; status: string }[]; equipamentosAlterados: number[]; semSinal: number[];
 };

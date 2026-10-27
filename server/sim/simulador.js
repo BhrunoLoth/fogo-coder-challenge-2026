@@ -476,7 +476,7 @@ class Simulador {
   estadoAoVivo(agora, mudancas = { ocorrencias: [], equipamentos: [], alertas: [] }) {
     return {
       agora, kpis: this.kpis(),
-      agentes: this.db.all("SELECT id, lat, lng, status, bairro_id, ocorrencia_id FROM agentes WHERE status NOT IN ('fora_turno','afastado')"),
+      agentes: this.db.all("SELECT id, lat, lng, status, tipo, bairro_id, ocorrencia_id FROM agentes WHERE status NOT IN ('fora_turno','afastado')"),
       moveis: (this._moveis || []).map((v) => ({ id: v.id, lat: +v.lat.toFixed(6), lng: +v.lng.toFixed(6) })),
       novasOcorrencias: mudancas.ocorrencias.filter((o) => o.tipo),
       ocorrenciasEncerradas: mudancas.ocorrencias.filter((o) => !o.tipo).map((o) => o.id),

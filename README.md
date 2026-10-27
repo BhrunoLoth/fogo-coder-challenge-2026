@@ -67,11 +67,12 @@ Agentes de trânsito, guardas municipais e policiais têm cadastro próprio, com
 
 **Mapa:**
 - Mostra todos os equipamentos e agentes.
-- De longe, os equipamentos aparecem como pontos coloridos, para o mapa não ficar poluído. Ao aproximar, viram ícones por tipo, com um anel na cor da situação.
+- Cada equipamento tem um ícone do seu tipo, com um anel na cor da situação. Ao aproximar, os ícones crescem.
+- Os agentes aparecem com a letra do tipo (T para trânsito, G para guarda municipal, P para polícia militar) e a cor do status.
 - Equipamento com problema fica piscando.
 
 **Indicadores e filtros:**
-- No topo: equipamentos operacionais, indisponíveis, disponibilidade, manutenção urgente, agentes em atividade e ocorrências abertas.
+- No topo: total de equipamentos, operacionais, indisponíveis, disponibilidade, manutenção urgente, agentes em atividade e ocorrências abertas.
 - Filtros por tipo, situação, zona, bairro, órgão responsável e manutenção urgente.
 
 **Visão por região:** dividi a cidade com um **diagrama de Voronoi**, em que cada ponto do mapa pertence ao bairro mais próximo. A região pode ser colorida pelo risco ou pela "saúde" (equipamentos funcionando, ocorrências graves, agentes presentes).

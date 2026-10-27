@@ -67,7 +67,7 @@ export default function Central({ telao, alternarTelao }: { telao: boolean; alte
       app.bump();
     } catch (err: any) { toast(err.message, 'erro'); }
   };
-  const detalhado = zoom >= 14.5; // nível de detalhe: pontos na visão da cidade, ícones ao aproximar
+  const detalhado = zoom >= 14.5; // ao aproximar, os ícones crescem
 
   // ------------------------------------------------------------ dados
   useEffect(() => { api.get<Equipamento[]>('/api/equipamentos').then(setEquipamentos); }, [versao]);
@@ -191,10 +191,9 @@ export default function Central({ telao, alternarTelao }: { telao: boolean; alte
       const cor = silencio ? '#ff4d4f' : s.cor;
       const alarme = silencio || e.situacao === 'furtado' || e.situacao === 'mau_funcionamento';
       const apagado = e.situacao === 'desativado' || e.situacao === 'nao_instalado';
-      const tam = detalhado ? (t.movel ? 20 : 26) : alarme ? 13 : t.movel ? 6 : 9;
-      const html = detalhado
-        ? marcadorHtml(iconeDoTipo(e.tipo), cor, { pulso: alarme, tamanho: tam, apagado })
-        : `<div class="pt${alarme ? ' mk-pulso' : ''}${apagado ? ' mk-apagado' : ''}" style="--c:${cor};width:${tam}px;height:${tam}px"></div>`;
+      // Ícone do tipo + anel na cor da situação em qualquer zoom (menor na visão da cidade).
+      const tam = detalhado ? (t.movel ? 20 : 26) : alarme ? 21 : t.movel ? 14 : 17;
+      const html = marcadorHtml(iconeDoTipo(e.tipo), cor, { pulso: alarme, tamanho: tam, apagado, compacto: !detalhado });
       const mk = L.marker([e.lat, e.lng], {
         icon: L.divIcon({ className: '', html, iconSize: [tam, tam], iconAnchor: [tam / 2, tam / 2] }),
         riseOnHover: true, zIndexOffset: alarme ? 600 : 0,
@@ -222,15 +221,17 @@ export default function Central({ telao, alternarTelao }: { telao: boolean; alte
       const st = meta.statusAgente.find((s) => s.id === a.status);
       const cor = st?.cor || '#fff';
       let mk = marcAg.current.get(a.id);
-      const html = `<div class="ag" style="--c:${cor}"></div>`;
+      // Agente: letra do tipo (T = trânsito, G = guarda municipal, P = polícia militar), cor = status.
+      const letra = ({ agente_transito: 'T', guarda_municipal: 'G', policial_militar: 'P' } as Record<string, string>)[a.tipo || nomes.get(a.id)?.tipo || ''] || '';
+      const html = `<div class="ag" style="--c:${cor}">${letra}</div>`;
       if (!mk) {
-        mk = L.marker([a.lat, a.lng], { icon: L.divIcon({ className: '', html, iconSize: [14, 14], iconAnchor: [7, 7] }), zIndexOffset: 500 });
+        mk = L.marker([a.lat, a.lng], { icon: L.divIcon({ className: '', html, iconSize: [18, 18], iconAnchor: [9, 9] }), zIndexOffset: 500 });
         mk.on('click', () => { const p = mk!.getLatLng(); if (exRef.current) disparar.current(p.lat, p.lng); else setSel({ tipo: 'ag', id: a.id }); });
         mk.addTo(g); marcAg.current.set(a.id, mk);
-        (mk as any)._st = a.status;
+        (mk as any)._st = a.status + letra;
       } else {
         mk.setLatLng([a.lat, a.lng]);
-        if ((mk as any)._st !== a.status) { mk.setIcon(L.divIcon({ className: '', html, iconSize: [14, 14], iconAnchor: [7, 7] })); (mk as any)._st = a.status; }
+        if ((mk as any)._st !== a.status + letra) { mk.setIcon(L.divIcon({ className: '', html, iconSize: [18, 18], iconAnchor: [9, 9] })); (mk as any)._st = a.status + letra; }
       }
       const info = nomes.get(a.id);
       mk.bindTooltip(`<b>${esc(info ? info.nome : 'Agente')}</b>${info ? ` · ${esc(info.matricula)}` : ''}<br>${esc(st?.nome)}`, { direction: 'top', offset: [0, -8] });
@@ -277,7 +278,7 @@ export default function Central({ telao, alternarTelao }: { telao: boolean; alte
 
       {/* KPIs */}
       <div className="ov ov-kpis">
-        <Kp rotulo="Equipamentos operacionais" v={k ? `${k.operacionais_efetivos}` : '—'} suf={k ? `/${k.total - k.nao_instalados - k.desativados}` : ''} d={k ? `Disponibilidade ${pct(k.disponibilidade)}` : ''} barra={k?.disponibilidade} />
+        <Kp rotulo="Equipamentos" v={k ? `${k.total}` : '—'} suf=" cadastrados" d={k ? `${k.operacionais_efetivos} operacionais (${pct(k.disponibilidade)} disponível)` : ''} barra={k?.disponibilidade} />
         <Kp rotulo="Indisponíveis" v={k ? `${k.indisponiveis + k.sem_sinal}` : '—'} cor={k && k.indisponiveis + k.sem_sinal > 0 ? 'var(--aviso)' : undefined} d={k ? `${k.sem_sinal} sem sinal · ${k.nao_instalados} não instalados` : ''} />
         <Kp rotulo="Manutenção urgente" v={k ? `${k.manut_urgente}` : '—'} cor={k && k.manut_urgente ? 'var(--brasa2)' : undefined} d="imediata ou em até 7 dias" />
         <Kp rotulo="Agentes em atividade" v={k ? `${k.agentes_ativos}` : '—'} suf={k ? `/${k.agentes_total}` : ''} d={k ? `${k.agentes_em_ocorrencia} atendendo ocorrência` : ''} />
@@ -389,7 +390,7 @@ export default function Central({ telao, alternarTelao }: { telao: boolean; alte
           <input type="range" min={-24} max={24} step={1} value={offset} onChange={(e) => { setTocando(false); setOffset(Number(e.target.value)); }} aria-label="Máquina do tempo" />
           <div className="marcas"><span>−24h (histórico)</span><span>−12h</span><span style={{ color: 'var(--brasa2)' }}>agora</span><span>+12h</span><span>+24h (previsão)</span></div>
           <div className="legenda-risco" style={{ marginTop: 6 }}>Risco: <span><i style={{ background: corRisco(10) }} />baixo</span><span><i style={{ background: corRisco(30) }} />moderado</span><span><i style={{ background: corRisco(60) }} />alto</span><span><i style={{ background: corRisco(90) }} />crítico</span>
-            <span style={{ marginLeft: 'auto' }}>◆ ocorrência · ● agente · {detalhado ? 'ícones = equipamentos (anel = situação)' : 'pontos = equipamentos · aproxime para ver os ícones'}</span></div>
+            <span style={{ marginLeft: 'auto' }}>ícone = tipo do equipamento · anel = situação · ◆ ocorrência · agentes: <b>T</b> trânsito, <b>G</b> guarda, <b>P</b> polícia</span></div>
         </div>
       </div>
 
