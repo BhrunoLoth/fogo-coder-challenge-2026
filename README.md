@@ -4,6 +4,8 @@ Projeto da Etapa Bônus do **Coder Challenge 2026 (DSIN)**. É uma central de op
 
 Bhruno Santos · Análise e Desenvolvimento de Sistemas · FATEC Garça
 
+**Vídeo de demonstração:** gravei um vídeo de 4 minutos, com legendas, passando pelas três partes. Ele foi enviado junto com o arquivo de entrega (`VIDEO-DEMONSTRACAO.mp4`).
+
 ## A ideia
 
 O que mais me chamou atenção no Protocolo Prometheus foi o motivo de a IA ter assumido o controle: as pessoas usavam sistemas que não entendiam mais. Por isso decidi que o F.O.G.O. não teria nada de caixa-preta:
@@ -40,8 +42,9 @@ Se tiver poucos minutos, sugiro esta ordem:
 3. **Modo exercício → Furto de câmera.** O cadastro continua dizendo que a câmera está operacional. Como ela para de mandar sinal, o sistema percebe em poucos segundos e marca em vermelho.
 4. **Modo exercício → Chuva forte.** O risco da cidade é recalculado e os bairros mais baixos (Cascata, Nova Marília, Alto Cafezal) sobem em risco de alagamento.
 5. **Cidade Preditiva.** Clique em qualquer célula do mapa de calor para ver o porquê daquele risco. Tem um jogo do MAC programado no Bento de Abreu, e dá para ver o efeito dele no entorno do estádio.
-6. **Aba Prova.** Para cada um dos últimos 7 dias, o modelo é treinado só com os dados anteriores àquele dia e comparado com o que aconteceu.
-7. **Inventário.** Cadastre um equipamento. Os campos mudam conforme o tipo, o GPS é marcado clicando no mapa e o CEP preenche o bairro.
+6. **Aba Reforço de agentes.** Aprove uma recomendação e descarte outra. As duas decisões aparecem em *Registro → Trilha de auditoria*.
+7. **Aba Prova.** Para cada um dos últimos 7 dias, o modelo é treinado só com os dados anteriores àquele dia e comparado com o que aconteceu.
+8. **Inventário.** Cadastre ou edite um equipamento. Os campos mudam conforme o tipo, o GPS é marcado clicando no mapa e a busca do CEP sugere o bairro e as ruas.
 
 ## Como resolvi cada parte
 
@@ -72,12 +75,14 @@ Agentes de trânsito, guardas municipais e policiais têm cadastro próprio, com
 - Equipamento com problema fica piscando.
 
 **Indicadores e filtros:**
-- No topo: total de equipamentos, operacionais, indisponíveis, disponibilidade, manutenção urgente, agentes em atividade e ocorrências abertas.
+- No topo: total de equipamentos, operacionais, indisponíveis, disponibilidade, manutenção urgente, agentes em atividade, ocorrências abertas e o bairro de maior risco no momento.
 - Filtros por tipo, situação, zona, bairro, órgão responsável e manutenção urgente.
 
 **Visão por região:** dividi a cidade com um **diagrama de Voronoi**, em que cada ponto do mapa pertence ao bairro mais próximo. A região pode ser colorida pelo risco ou pela "saúde" (equipamentos funcionando, ocorrências graves, agentes presentes).
 
 **Tempo real:** tudo atualiza sozinho via Server-Sent Events.
+
+**Registro:** o relatório de passagem de turno é gerado automaticamente, com o que aconteceu, o que mudou e onde ficar de olho no próximo turno. Ao lado fica a trilha de auditoria.
 
 **Detecção de anomalias:**
 - **Sem sinal:** cada equipamento manda um sinal a cada 30 s. Se ficar mais de 90 s sem mandar e o cadastro disser que está operacional, gera alerta.
@@ -146,7 +151,7 @@ Para alterar a interface: entre em `web`, rode `npm install` e depois `npm run b
 
 ## Uso de IA
 
-Usei o Claude (Anthropic) como par de programação durante o desenvolvimento, na discussão de arquitetura e na escrita e revisão do código. O sistema em funcionamento não usa nenhuma IA externa: os modelos de previsão são estatística implementada no próprio código.
+Usei o Claude (Anthropic) como par de programação durante o desenvolvimento, na discussão de arquitetura e na escrita e revisão do código, e também na edição do vídeo (cortes e legendas). O sistema em funcionamento não usa nenhuma IA externa: os modelos de previsão são estatística implementada no próprio código.
 
 ## Sobre os dados
 

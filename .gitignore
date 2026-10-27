@@ -2,3 +2,6 @@ node_modules/
 web/node_modules/
 data/*.sqlite
 data/*.tmp
+
+# vídeo de demonstração (vai junto do arquivo de entrega, fora do Git)
+VIDEO-DEMONSTRACAO.mp4
